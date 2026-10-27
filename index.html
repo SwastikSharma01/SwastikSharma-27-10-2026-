@@ -20,6 +20,17 @@
       <div class="cart-items" id="cart-items">Your cart is empty.</div>
 
       <p class="cart-total" id="cart-total">Total: ₹0</p>
+  
+<div class="coupon">
+    <input type="text" id="coupon-code" placeholder="Enter coupon code">
+    <button id="apply-coupon">Apply Coupon</button>
+    <p id="coupon-message"></p>
+</div>
+
+<p>Discount: ₹<span id="discount">0</span></p>
+<p>Final Total: ₹<span id="final-total">0</span></p>
+
+<button id="checkout-button">Proceed to Checkout</button>
 
       <p></p>
 
@@ -29,5 +40,29 @@
     <div class="container" id="products"></div>
 
     <script src="script.js" defer></script>
+
+<div id="checkout-modal" class="checkout-modal">
+    <div class="checkout-box">
+        <h2>Checkout</h2>
+
+        <p id="checkout-summary"></p>
+
+        <form id="checkout-form">
+            <input type="text" id="customer-name"
+                   placeholder="Full Name" required>
+
+            <input type="email" id="customer-email"
+                   placeholder="Email Address" required>
+
+            <input type="text" id="customer-address"
+                   placeholder="Delivery Address" required>
+
+            <button type="submit">Place Order</button>
+            <button type="button" id="close-checkout">Cancel</button>
+        </form>
+
+        <p id="order-message"></p>
+    </div>
+</div>
   </body>
 </html>
