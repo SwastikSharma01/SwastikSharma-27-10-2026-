@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Cards</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Vehicle Corner</h1>
+
+    <section class="cart" aria-live="polite">
+      <div class="cart-header">
+        <h2>Shopping Cart (<span id="cart-count">0</span>)</h2>
+        <button type="button" class="empty-cart" id="empty-cart" disabled>
+          Empty Cart
+        </button>
+      </div>
+
+      <div class="cart-items" id="cart-items">Your cart is empty.</div>
+
+      <p class="cart-total" id="cart-total">Total: ₹0</p>
+
+      <p></p>
+
+      <button type="button" id="theme-change">Theme Change</button>
+    </section>
+
+    <div class="container" id="products"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
