@@ -1,68 +1,324 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Cards</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Corner</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
     <h1>Vehicle Corner</h1>
 
-    <section class="cart" aria-live="polite">
-      <div class="cart-header">
-        <h2>Shopping Cart (<span id="cart-count">0</span>)</h2>
-        <button type="button" class="empty-cart" id="empty-cart" disabled>
-          Empty Cart
-        </button>
-      </div>
+    <div class="cart">
 
-      <div class="cart-items" id="cart-items">Your cart is empty.</div>
+        <div class="cart-header">
+            <h2>Shopping Cart (<span id="cart-count">0</span>)</h2>
 
-      <p class="cart-total" id="cart-total">Total: ₹0</p>
-  
-<div class="coupon">
-    <input type="text" id="coupon-code" placeholder="Enter coupon code">
-    <button id="apply-coupon">Apply Coupon</button>
-    <p id="coupon-message"></p>
-</div>
+            <button id="empty-cart">Empty Cart</button>
+        </div>
 
-<p>Discount: ₹<span id="discount">0</span></p>
-<p>Final Total: ₹<span id="final-total">0</span></p>
+        <div id="cart-items">
+            Your cart is empty.
+        </div>
 
-<button id="checkout-button">Proceed to Checkout</button>
+        <p id="cart-total">Subtotal: ₹0</p>
 
-      <p></p>
+        <div class="coupon">
 
-      <button type="button" id="theme-change">Theme Change</button>
-    </section>
+            <input type="text" id="coupon-code" placeholder="Enter coupon code">
 
-    <div class="container" id="products"></div>
+            <button id="apply-coupon">Apply Coupon</button>
 
-    <script src="script.js" defer></script>
+            <p id="coupon-message"></p>
 
-<div id="checkout-modal" class="checkout-modal">
-    <div class="checkout-box">
-        <h2>Checkout</h2>
+        </div>
 
-        <p id="checkout-summary"></p>
+        <p>Discount: <span id="discount">₹0</span></p>
 
-        <form id="checkout-form">
-            <input type="text" id="customer-name"
-                   placeholder="Full Name" required>
+        <p>Final Total: <span id="final-total">₹0</span></p>
 
-            <input type="email" id="customer-email"
-                   placeholder="Email Address" required>
+        <button id="checkout-button">Proceed to Checkout</button>
 
-            <input type="text" id="customer-address"
-                   placeholder="Delivery Address" required>
+        <br><br>
 
-            <button type="submit">Place Order</button>
-            <button type="button" id="close-checkout">Cancel</button>
-        </form>
+        <button id="theme-change">Theme Change</button>
 
-        <p id="order-message"></p>
     </div>
-</div>
-  </body>
+
+    <div class="container" id="products">
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Tesla Model 3</h2>
+
+            <p>Type: Electric Sedan</p>
+
+            <p class="price">₹60.00 Lakh</p>
+
+            <p>Fuel: Electric</p>
+
+            <button onclick="changeQuantity(0, -1)">-</button>
+
+            <span id="quantity-0">1</span>
+
+            <button onclick="changeQuantity(0, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(0)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80">
+
+            <h2>BMW X5</h2>
+
+            <p>Type: Luxury SUV</p>
+
+            <p class="price">₹96.90 Lakh</p>
+
+            <p>Fuel: Petrol/Diesel</p>
+
+            <button onclick="changeQuantity(1, -1)">-</button>
+
+            <span id="quantity-1">1</span>
+
+            <button onclick="changeQuantity(1, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(1)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Honda Civic</h2>
+
+            <p>Type: Compact Sedan</p>
+
+            <p class="price">₹25.00 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(2, -1)">-</button>
+
+            <span id="quantity-2">1</span>
+
+            <button onclick="changeQuantity(2, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(2)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Ford Mustang</h2>
+
+            <p>Type: Sports Coupe</p>
+
+            <p class="price">₹80.00 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(3, -1)">-</button>
+
+            <span id="quantity-3">1</span>
+
+            <button onclick="changeQuantity(3, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(3)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Mercedes-Benz C-Class</h2>
+
+            <p>Type: Luxury Sedan</p>
+
+            <p class="price">₹70.00 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(4, -1)">-</button>
+
+            <span id="quantity-4">1</span>
+
+            <button onclick="changeQuantity(4, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(4)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1558980664-10e7170b5df9?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Kawasaki Ninja ZX-10R</h2>
+
+            <p>Type: Superbike</p>
+
+            <p class="price">₹20.00 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(5, -1)">-</button>
+
+            <span id="quantity-5">1</span>
+
+            <button onclick="changeQuantity(5, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(5)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1567808291548-fc3ee04dbcf0?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Royal Enfield Classic 350</h2>
+
+            <p>Type: Cruiser Bike</p>
+
+            <p class="price">₹1.89 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(6, -1)">-</button>
+
+            <span id="quantity-6">1</span>
+
+            <button onclick="changeQuantity(6, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(6)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Audi Q7</h2>
+
+            <p>Type: Luxury SUV</p>
+
+            <p class="price">₹92.29 Lakh</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(7, -1)">-</button>
+
+            <span id="quantity-7">1</span>
+
+            <button onclick="changeQuantity(7, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(7)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Porsche 911</h2>
+
+            <p>Type: Sports Car</p>
+
+            <p class="price">₹2.00 Cr</p>
+
+            <p>Fuel: Petrol</p>
+
+            <button onclick="changeQuantity(8, -1)">-</button>
+
+            <span id="quantity-8">1</span>
+
+            <button onclick="changeQuantity(8, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(8)">Add to Cart</button>
+
+        </div>
+
+        <div class="card">
+
+            <img class="card-image" src="https://images.unsplash.com/photo-1552519507-88aa2dfa9fdb?auto=format&fit=crop&w=900&q=80">
+
+            <h2>Hyundai Creta</h2>
+
+            <p>Type: Compact SUV</p>
+
+            <p class="price">₹15.00 Lakh</p>
+
+            <p>Fuel: Petrol/Diesel</p>
+
+            <button onclick="changeQuantity(9, -1)">-</button>
+
+            <span id="quantity-9">1</span>
+
+            <button onclick="changeQuantity(9, 1)">+</button>
+
+            <br><br>
+
+            <button onclick="addToCart(9)">Add to Cart</button>
+
+        </div>
+
+    </div>
+
+    <div id="checkout-modal" class="checkout-modal">
+
+        <div class="checkout-box">
+
+            <h2>Checkout</h2>
+
+            <p id="checkout-summary"></p>
+
+            <form id="checkout-form">
+
+                <input type="text" id="customer-name" placeholder="Full Name" required>
+
+                <input type="email" id="customer-email" placeholder="Email Address" required>
+
+                <input type="text" id="customer-address" placeholder="Delivery Address" required>
+
+                <br><br>
+
+                <button type="submit">Place Order</button>
+
+                <button type="button" id="close-checkout">Cancel</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
 </html>

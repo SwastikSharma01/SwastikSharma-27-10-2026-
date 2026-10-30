@@ -86,121 +86,161 @@ button:hover {
     background: #4a7d51;
 }
 
+/* SHOPPING CART */
+
 .cart {
-    margin: 20px;
-    padding: 20px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    width: 90% !important;
+    max-width: 1000px !important;
+    margin: 40px auto !important;
+    padding: 30px !important;
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
 }
 
-.cart-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+/* CART HEADING */
+
+.cart h2 {
+    font-size: 25px;
+    color: #263e2c;
+    margin-bottom: 25px;
 }
+
+/* CART ITEMS */
 
 .cart-items {
-    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .cart-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
+    gap: 15px;
+    padding: 18px 20px;
+    background: #f7f9f6;
+    border: 1px solid #e5e9e4;
+    border-radius: 10px;
 }
 
-.cart-item-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.cart-item p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.remove-item,
-.empty-cart {
-    background: #f5e3d8;
-    color: #8b4527;
+.cart-item button {
+    background: #feecec;
+    color: #c0392b;
+    padding: 9px 16px;
+    border-radius: 6px;
 }
+
+.cart-item button:hover {
+    background: #c0392b;
+    color: white;
+}
+
+/* SUBTOTAL */
 
 .cart-total {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* COUPON SECTION */
+
+.cart input {
+    padding: 12px;
+    width: 220px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+}
+
+.cart input:focus {
+    border-color: #38583f;
+}
+
+/* DISCOUNT AND FINAL TOTAL */
+
+.cart > p:not(.cart-total) {
+    text-align: right;
+    font-size: 16px;
+}
+
+#discount {
+    color: #16834a;
     font-weight: bold;
 }
 
-.empty-cart:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+#final-total {
+    font-size: 23px;
+    font-weight: bold;
+    color: #263e2c;
 }
 
-body.grey-theme {
-    background: grey;
+/* BUTTONS */
+
+.cart button {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #e8f0e5;
+    color: #38583f;
+    font-size: 14px;
 }
 
-/* Coupon section */
-.coupon {
-    margin: 15px 0;
+.cart button:hover {
+    background: #d5e5cf;
 }
 
-.coupon input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#coupon-message {
-    color: green;
-}
-
-/* Checkout button */
 #checkout-button {
-    background: #365b3c;
-    color: white;
-    margin-top: 10px;
+    background: #263e2c !important;
+    color: white !important;
+    width: 100%;
+    padding: 15px !important;
+    font-size: 16px !important;
+    margin-top: 15px;
 }
 
 #checkout-button:hover {
-    background: #29472e;
+    background: #416849 !important;
 }
 
-/* Checkout popup */
-.checkout-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #00000080;
-    justify-content: center;
-    align-items: center;
+#empty-cart {
+    margin-bottom: 20px;
 }
 
-.checkout-box {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    width: 350px;
-    max-width: 90%;
+.grey-theme {
+    background: #e5e5e5;
 }
 
-.checkout-box input {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+/* MOBILE SCREEN */
 
-.checkout-box button {
-    margin-top: 10px;
-}
+@media (max-width: 600px) {
+    .cart {
+        width: 90% !important;
+        padding: 15px !important;
+    }
 
-#order-message {
-    color: green;
-    font-weight: bold;
+    .cart-item {
+        grid-template-columns: 1fr auto;
+    }
+
+    .cart-item p:nth-child(2) {
+        grid-column: 1;
+    }
+
+    .cart-item button {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
 }
